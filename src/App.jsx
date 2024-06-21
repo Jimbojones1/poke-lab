@@ -29,7 +29,7 @@ const App = () => {
         <Route path="/" element={<h1>Pokemon!</h1>} />
         <Route path="/pokemon" element={<PokemonList pokemon={pokemon} />} />
         <Route path='/pokemon/new' element={<PokemonForm addPokemon={addPokemon}/>} />
-        <Route path='/pokemon/:pokeId'element={<PokemonDetail pokemon={pokemon}/>} />
+        <Route path='/pokemon/:pokemonName'element={<PokemonDetail pokemon={pokemon}/>} />
       </Routes>
     </>
   );

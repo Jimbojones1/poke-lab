@@ -8,7 +8,7 @@ const PokemonList = (props) => {
 		<ul>
 		  {props.pokemon.map((currentPokemon) => (
 			<li key={currentPokemon.name}>
-				<Link to={`/pokemon/${currentPokemon._id}`}> {currentPokemon.name}</Link>
+				<Link to={`/pokemon/${currentPokemon.name}`}> {currentPokemon.name}</Link>
 			</li>
 		  ))}
 		</ul>
