@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
+
+import * as pokeService from '../services/pokeService'
 
 export default function PokemonDetail() {
   const [pokemon, setPokemon] = useState({
@@ -17,10 +18,9 @@ export default function PokemonDetail() {
   useEffect(() => {
     async function getPokemon() {
       try {
-        const response = await fetch(BASE_URL + pokemonName);
-        const data = await response.json();
-        console.log(data, " <- data from poke API");
-
+		const data = await pokeService.getPokemon(pokemonName)
+		const speciesData = await pokeService.getSpecies(data.species.url)
+		console.log(data)
         setPokemon({
           name: data.name,
           imgUrl: data.sprites.front_default,
